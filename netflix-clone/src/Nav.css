@@ -14,6 +14,7 @@
 .nav__contents{
     display: flex;
     justify-content: space-between;
+    
 }
 
 .nav__black{
@@ -28,6 +29,7 @@
     object-fit: 80px;
     padding-left: 20px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .nav__avatar{
@@ -35,4 +37,5 @@
     position: fixed;
     right: 20px;
     width: 30px;
+    z-index: 1;
 }
