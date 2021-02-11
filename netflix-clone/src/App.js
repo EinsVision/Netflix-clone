@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import HomeScreen from './HomeScreen';
+import HomeScreen from './screens/HomeScreen';
+import LoginScreen from './screens/LoginScreen';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,17 +9,23 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const user = null;
+
   return (
     <div className="app">
       <Router>
-        <Switch>
-          <Route path="/">
-            <HomeScreen />
-          </Route>
-        </Switch>
-    </Router>
+        {!user ? (
+          <LoginScreen />
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <HomeScreen />
+            </Route>
+          </Switch>
+        )}
+      </Router>
     </div>
   );
 }
-
+// 35:23
 export default App;
