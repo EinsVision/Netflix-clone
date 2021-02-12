@@ -28,12 +28,12 @@ function App() {
         }));
       } else {
         // Logged out
-        dispatch(logout);
+        dispatch(logout());
       }
     });
 
     return unsubscribe();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
