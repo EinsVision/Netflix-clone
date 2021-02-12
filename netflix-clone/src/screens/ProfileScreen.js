@@ -1,10 +1,10 @@
 import React from 'react';
 import './ProfileScreen.css';
-
+import Nav from '../Nav';
 function ProfileScreen() {
     return (
         <div className='profileScreen'>
-            <h1>This is the profile.</h1>
+            <Nav />
         </div>
     )
 }

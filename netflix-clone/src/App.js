@@ -14,6 +14,7 @@ import ProfileScreen from './screens/ProfileScreen';
 
 function App() {
   const user = useSelector(selectUser);
+  // const user = null;
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -41,7 +42,7 @@ function App() {
           <LoginScreen />
         ) : (
           <Switch>
-            <Route path="profile">
+            <Route path="/profile">
               <ProfileScreen />
             </Route>
             <Route exact path="/">
@@ -53,5 +54,5 @@ function App() {
     </div>
   );
 }
-// 35:23
+
 export default App;
