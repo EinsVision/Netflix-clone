@@ -45,8 +45,8 @@ function PlansScreen() {
           });
     }, []);
 
-    console.log(products);
-    console.log(subscription);
+    console.log("products: ", products);
+    console.log("subscription: ", subscription);
 
     const loadCheckout = async (priceId) =>{
         const docRef = await db.collection('customers')
@@ -74,11 +74,13 @@ function PlansScreen() {
 
     return (
         <div className='plansScreen'>
+            {subscription && <p>Renewal date: {new Date(subscription?. current_period_end * 1000 ).toLocaleDateString()}</p>}
             {Object.entries(products).map(([productId, productData]) => {
                 // add some logic to check if the users' subscrition is active...
                 const isCurrentPackage = productData.name?.toLowerCase().includes(subscription?.role);
+                console.log('isCurrentPackage: ', isCurrentPackage);
                 return (
-                    <div key={productId} className='plansScreen__plan'>
+                    <div key={productId} className={`${isCurrentPackage && "plansScreen__plan--disabled"} plansScreen__plan`}>
                         <div className='plansScreen__info'>
                             <h5>{productData.name}</h5>
                             <h6>{productData.description}</h6>
